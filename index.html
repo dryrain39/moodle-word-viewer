@@ -51,11 +51,21 @@
         }
 
         $('#word').DataTable({
-                data: JSON.parse(words),
-                dom: 'Blfrtip',
-                buttons: ['copy', 'csv', 'excel', 'print'],
-                columns: [{ data: 'text' },{ data: 'answer' }]
-            });
+            data: JSON.parse(words),
+            dom: 'Blfrtip',
+            buttons: ['copy', 'csv', 'excel', 'print'],
+            columns: [
+                {
+                    data: 'text',
+                    render: $.fn.dataTable.render.text()
+                },
+                {
+                    data: 'answer',
+                    render: $.fn.dataTable.render.text()
+                }
+            ],
+
+        });
     </script>
 
 </body>
